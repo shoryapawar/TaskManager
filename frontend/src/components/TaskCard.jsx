@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { MdEdit } from "react-icons/md";
 
 const TaskCard = ({ task, updateTask, deleteTask }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTask, setEditedTask] = useState({ ...task });
+
   // Toggle completion
   const toggleCompletion = () => {
     updateTask({ ...task, completed: !task.completed });
@@ -26,15 +28,14 @@ const TaskCard = ({ task, updateTask, deleteTask }) => {
         ${task.completed ? "bg-green-100" : "bg-white"}`}
     >
       {isEditing && !task.completed ? (
-        // Editable fields
-        <>
+        <div className="bg-white-100">
           <input
             type="text"
             value={editedTask.title}
             onChange={(e) =>
               setEditedTask({ ...editedTask, title: e.target.value })
             }
-            className="w-full p-2 mb-2 border rounded"
+            className="w-full p-2 mb-2 border rounded bg-gray-100" // Update background color
             placeholder="Title"
           />
           <textarea
@@ -42,7 +43,7 @@ const TaskCard = ({ task, updateTask, deleteTask }) => {
             onChange={(e) =>
               setEditedTask({ ...editedTask, description: e.target.value })
             }
-            className="w-full p-2 mb-2 border rounded"
+            className="w-full p-2 mb-2 border rounded bg-gray-100" // Update background color
             placeholder="Description"
           />
           <input
@@ -51,20 +52,20 @@ const TaskCard = ({ task, updateTask, deleteTask }) => {
             onChange={(e) =>
               setEditedTask({ ...editedTask, dueDate: e.target.value })
             }
-            className="w-full p-2 mb-2 border rounded"
+            className="w-full p-2 mb-2 border rounded bg-gray-100" // Update background color
           />
           <select
             value={editedTask.priority}
             onChange={(e) =>
               setEditedTask({ ...editedTask, priority: e.target.value })
             }
-            className="w-full p-2 mb-2 border rounded"
+            className="w-full p-2 mb-2 border rounded bg-gray-100" // Update background color
           >
             <option value="High">High</option>
             <option value="Medium">Medium</option>
             <option value="Low">Low</option>
           </select>
-        </>
+        </div>
       ) : (
         // View-only fields
         <>
@@ -88,7 +89,7 @@ const TaskCard = ({ task, updateTask, deleteTask }) => {
             </span>
           </p>
           <p className="text-sm font-medium mb-4">
-            Status:{" "}
+            Status:
             {task.completed ? (
               <span className="text-green-600">Completed</span>
             ) : (
@@ -123,7 +124,7 @@ const TaskCard = ({ task, updateTask, deleteTask }) => {
               className={`px-4 py-2 text-sm font-medium rounded transition-colors duration-300 ${
                 task.completed
                   ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                  : "bg-yellow-500 text-white hover:bg-yellow-600"
+                  : "bg-cyan-500 text-white hover:bg-cyan-600"
               }`}
               disabled={task.completed} // Disable button if task is completed
             >

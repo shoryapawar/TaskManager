@@ -48,14 +48,14 @@ const TaskForm = ({ addTask }) => {
         value={task.title}
         onChange={(e) => setTask({ ...task, title: e.target.value })}
         required
-        className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF3B30] bg-[#F1F1F1] text-[#2E2E30]"
+        className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#A1A1A6] bg-[#F1F1F1] text-[#2E2E30]"
       />
 
       <textarea
         placeholder="Description"
         value={task.description}
         onChange={(e) => setTask({ ...task, description: e.target.value })}
-        className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF3B30] bg-[#F1F1F1] text-[#2E2E30]"
+        className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#A1A1A6] bg-[#F1F1F1] text-[#2E2E30]"
         rows="4"
       ></textarea>
 
@@ -65,29 +65,29 @@ const TaskForm = ({ addTask }) => {
           value={task.dueDate}
           onChange={(e) => setTask({ ...task, dueDate: e.target.value })}
           required
-          className="w-1/2 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF3B30] bg-[#F1F1F1] text-[#2E2E30]"
+          className="w-1/2 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#A1A1A6] bg-[#F1F1F1] text-[#2E2E30]"
         />
         <select
           value={task.priority}
           placeholder="Priority"
           onChange={(e) => setTask({ ...task, priority: e.target.value })}
-          className="w-1/2 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF3B30] bg-[#F1F1F1] hover:text-red-500 text-[#2E2E30]"
+          className="w-1/2 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#A1A1A6] bg-[#F1F1F1]  text-[#2E2E30]"
         >
           <option
             value="High"
-            className="bg-white text-black hover:bg-red-500 hover:text-white"
+            className="bg-white text-black  hover:text-white"
           >
             High
           </option>
           <option
             value="Medium"
-            className="bg-white text-black hover:bg-red-500 hover:text-white"
+            className="bg-white text-black  hover:text-white"
           >
             Medium
           </option>
           <option
             value="Low"
-            className="bg-white text-black hover:bg-red-500 hover:text-white"
+            className="bg-white text-black  hover:text-white"
           >
             Low
           </option>

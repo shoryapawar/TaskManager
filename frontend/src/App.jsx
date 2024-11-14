@@ -6,32 +6,29 @@ import { Route, Routes } from "react-router-dom";
 import UpcomingTask from "./pages/UpcomingTask";
 import OverDue from "./pages/OverDue";
 import Completed from "./pages/Completed";
+import SearchResultsModal from "./components/SearchResultsModal";
+
 function App() {
   const [tasks, setTasks] = useState(() => {
-    // Load tasks from localStorage only once when the component mounts
     return JSON.parse(localStorage.getItem("tasks")) || [];
   });
-
   const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false); // New state to control modal visibility
 
-  // Save tasks to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  // Handle search query update
   const handleSearch = (query) => {
     setSearchQuery(query.toLowerCase());
   };
 
-  // Filter tasks based on search query
   const filteredTasks = tasks.filter(
     (task) =>
       task.title.toLowerCase().includes(searchQuery) ||
       task.description.toLowerCase().includes(searchQuery)
   );
 
-  // Task management functions
   const addTask = (task) => {
     const updatedTasks = [...tasks, task];
     setTasks(updatedTasks);
@@ -48,55 +45,77 @@ function App() {
     const updatedTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(updatedTasks);
   };
+
+  const openSearchModal = () => {
+    setIsSearchModalOpen(true);
+  };
+
+  const closeSearchModal = () => {
+    setIsSearchModalOpen(false);
+    setSearchQuery(""); // Clear search query when modal closes
+  };
+
   return (
-    <div className="min-h-screen font-georgia bg-background flex flex-col items-center p-6">
-      <SideNav className="mb-12 p-7 font-sourgummy" onSearch={handleSearch} />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Dashboard
-              className="mt-12"
-              tasks={filteredTasks}
-              addTask={addTask}
-              updateTask={updateTask}
-              deleteTask={deleteTask}
-            />
-          }
-        />
-        <Route
-          path="/UpcomingTask"
-          element={
-            <UpcomingTask
-              tasks={filteredTasks}
-              addTask={addTask}
-              updateTask={updateTask}
-              deleteTask={deleteTask}
-            />
-          }
-        />
-        <Route
-          path="/OverDueTask"
-          element={
-            <OverDue
-              tasks={filteredTasks}
-              addTask={addTask}
-              updateTask={updateTask}
-              deleteTask={deleteTask}
-            />
-          }
-        /><Route
-        path="/CompletedTask"
-        element={
-          <Completed
-            tasks={filteredTasks}
-            addTask={addTask}
-            updateTask={updateTask}
-            deleteTask={deleteTask}
+    <div className="min-h-screen font-georgia bg-navbar flex flex-col items-center p-6">
+      <SideNav className="p-7 font-sourgummy" onSearch={handleSearch} openSearchModal={openSearchModal} /> {/* Pass handler */}
+      <div className="mt-4 w-full">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Dashboard
+                className="mt-12"
+                tasks={filteredTasks}
+                addTask={addTask}
+                updateTask={updateTask}
+                deleteTask={deleteTask}
+              />
+            }
           />
-        }
-      />
-      </Routes>
+          <Route
+            path="/UpcomingTask"
+            element={
+              <UpcomingTask
+                tasks={filteredTasks}
+                addTask={addTask}
+                updateTask={updateTask}
+                deleteTask={deleteTask}
+              />
+            }
+          />
+          <Route
+            path="/OverDueTask"
+            element={
+              <OverDue
+                tasks={filteredTasks}
+                addTask={addTask}
+                updateTask={updateTask}
+                deleteTask={deleteTask}
+              />
+            }
+          />
+          <Route
+            path="/CompletedTask"
+            element={
+              <Completed
+                tasks={filteredTasks}
+                addTask={addTask}
+                updateTask={updateTask}
+                deleteTask={deleteTask}
+              />
+            }
+          />
+        </Routes>
+      </div>
+      {isSearchModalOpen && (
+        <SearchResultsModal
+        onSearch={handleSearch}
+          tasks={filteredTasks}
+          onClose={closeSearchModal}
+          updateTask={updateTask}
+          deleteTask={deleteTask}
+        />
+      )}
     </div>
   );
 }
