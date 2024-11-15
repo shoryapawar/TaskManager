@@ -3,12 +3,13 @@
 This is a Task Management application built using React and Vite. It provides a user-friendly interface for organizing tasks with features such as task creation, editing, deletion, and filtering by priority and status.
 
 ## Features
-
 - **Dashboard**: View upcoming, overdue, and completed tasks.
 - **Task Management**: Create, edit, delete, and filter tasks.
 - **Search**: Easily search and display specific tasks.
 - **Priority Filtering**: Filter tasks based on their priority levels.
 - **Status Filtering**: Filter tasks by status to display only relevant tasks.
+- **Separate Pages for Tasks**: Dedicated pages for different task categories, including tasks based on status (upcoming, overdue, completed).
+
 
 ## Prerequisites
 
@@ -42,7 +43,7 @@ Your application will be available at [http://localhost:5173](http://localhost:5
 
 ## Deployment
 
-To deploy your application, follow these steps:
+To deploy the application, follow these steps:
 
 1. Build the application:
 
