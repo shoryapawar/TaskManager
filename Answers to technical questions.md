@@ -2,7 +2,7 @@
 
 ## 1. How long did you spend on the coding test?
 
-I spent 6 hours working on the task manager application. Initially, I focused on planning the features, then moved to setting up the UI and implementing the core functionality. The task manager involved handling features like task creation, task editing, deletion, and categorization based on priority and status. Throughout the process, I also ensured a seamless user experience, and I spent time refining the design and functionality, particularly working on validations and user input handling.
+I dedicated 6 hours to building the task manager application. My first step was to outline the key features and functionalities, followed by setting up the UI. I then focused on implementing the core features such as task creation, editing, deletion, and categorization by priority and status. During development, I made sure the user interface was intuitive and easy to navigate. I also fine-tuned the task management features to ensure smooth functionality, especially when interacting with tasks based on their status or priority levels.
 
 ## 2. What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
 
@@ -73,19 +73,18 @@ I haven’t directly worked on production issues, but I would approach it by fir
   I have implemented all the key features that were requested for the task management application, including task creation, editing, deletion, priority setting, and task completion toggling. Additionally, I’ve worked on providing a user-friendly UI, with clear visual cues for task status, and incorporated features like date pickers and priority selection for each task.
 
 However, if I had more time or the freedom to enhance the application further, I would consider adding the following features:
+- **User Authentication and Authorization**: Allow users to create accounts, log in, and have their tasks saved across devices. This would enable different users to manage their tasks independently.
 
-User Authentication and Authorization: Allow users to create accounts, log in, and have their tasks saved across devices. This would enable different users to manage their tasks independently.
+- **Task Reminders/Notifications**: Implement push notifications or email reminders for upcoming tasks or deadlines to help users stay on top of their to-do lists.
 
-Task Reminders/Notifications: Implement push notifications or email reminders for upcoming tasks or deadlines to help users stay on top of their to-do lists.
+- **Drag-and-Drop Task Sorting**: Implement drag-and-drop functionality to reorder tasks within categories like 'Pending', 'In Progress', and 'Completed'.
 
-Drag-and-Drop Task Sorting: Implement drag-and-drop functionality to reorder tasks within categories like 'Pending', 'In Progress', and 'Completed'.
+- **Dark Mode**: Add a dark mode toggle to improve the user experience, especially for users who prefer to work in low-light environments.
 
-Dark Mode: Add a dark mode toggle to improve the user experience, especially for users who prefer to work in low-light environments.
+- **Task Subtasks and Dependencies**: Allow users to break down tasks into smaller subtasks and manage dependencies between tasks.
 
-Task Subtasks and Dependencies: Allow users to break down tasks into smaller subtasks and manage dependencies between tasks.
+- **Data Visualization**: Provide charts or graphs to help users visualize their task progress, such as completion rates or upcoming deadlines.
 
-Data Visualization: Provide charts or graphs to help users visualize their task progress, such as completion rates or upcoming deadlines.
+- **Integration with Calendar**: Integrate the application with a calendar (such as Google Calendar) to help users manage their tasks alongside their appointments.
 
-Integration with Calendar: Integrate the application with a calendar (such as Google Calendar) to help users manage their tasks alongside their appointments.
-
-Collaboration and Sharing: Enable users to collaborate on tasks by sharing tasks with team members or assigning tasks to different users within the app.
+- **Collaboration and Sharing**: Enable users to collaborate on tasks by sharing tasks with team members or assigning tasks to different users within the app.
