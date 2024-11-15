@@ -2,9 +2,9 @@
 
 ## 1. How long did you spend on the coding test?
 
-I dedicated 6 hours to building the task manager application. My first step was to outline the key features and functionalities, followed by setting up the UI. I then focused on implementing the core features such as task creation, editing, deletion, and categorization by priority and status. During development, I made sure the user interface was intuitive and easy to navigate. I also fine-tuned the task management features to ensure smooth functionality, especially when interacting with tasks based on their status or priority levels.
+I dedicated approximately 4 hours per day over two days to building the task manager application. My first step was to outline the key features and functionalities and set up the UI. I then focused on implementing the core features such as task creation, editing, deletion, and categorization by priority and status. During development, I ensured the user interface was intuitive and easy to navigate. I also fine-tuned the task management features to ensure smooth functionality, especially when interacting with tasks based on their status or priority levels.
 
-## 2. What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
+## 2. What was the most useful feature added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
 
 In the latest versions of JavaScript (ES6+), one useful feature is the ability to use middleware functions to enhance database operations. In MongoDB, using Mongoose, middleware allows us to run operations before or after actions like saving, updating, or removing documents. Specifically, pre-save middleware helps automate tasks like password hashing before storing sensitive data.
 
