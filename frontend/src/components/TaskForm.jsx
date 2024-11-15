@@ -40,6 +40,29 @@ const TaskForm = ({ addTask }) => {
     }
   };
 
+  const handleDateChange = (e) => {
+    let dateValue = e.target.value;
+
+    const [year, month, day] = dateValue.split("-");
+    if (year && year.length > 4) {
+      dateValue = `${year.slice(0, 4)}-${month || ""}-${day || ""}`;
+    }
+    if (month && month.length > 2) {
+      dateValue = `${year || ""}-${month.slice(0, 2)}-${day || ""}`;
+    }
+    if (day && day.length > 2) {
+      dateValue = `${year || ""}-${month || ""}-${day.slice(0, 2)}`;
+    }
+
+    // Validate
+    const date = new Date(dateValue);
+    if (date && !isNaN(date)) {
+      setTask({ ...task, dueDate: dateValue });
+    } else {
+      setTask({ ...task, dueDate: "" });
+    }
+  };
+
   return (
     <form className="space-y-4 bg-white p-4 mt-4 rounded shadow-md max-w-4xl mx-auto text-black">
       <input
@@ -63,7 +86,7 @@ const TaskForm = ({ addTask }) => {
         <input
           type="date"
           value={task.dueDate}
-          onChange={(e) => setTask({ ...task, dueDate: e.target.value })}
+          onChange={handleDateChange}
           required
           className="w-1/2 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#A1A1A6] bg-[#F1F1F1] text-[#1a1a1b]"
           style={{

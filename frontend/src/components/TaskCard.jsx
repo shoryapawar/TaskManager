@@ -22,6 +22,30 @@ const TaskCard = ({ task, updateTask, deleteTask }) => {
     setIsEditing(false); // Exit edit mode
   };
 
+  // Handle date input change with validation
+  const handleDateChange = (e) => {
+    let dateValue = e.target.value;
+    const [year, month, day] = dateValue.split("-");
+
+    if (year && year.length > 4) {
+      dateValue = `${year.slice(0, 4)}-${month || ""}-${day || ""}`;
+    }
+    if (month && month.length > 2) {
+      dateValue = `${year || ""}-${month.slice(0, 2)}-${day || ""}`;
+    }
+    if (day && day.length > 2) {
+      dateValue = `${year || ""}-${month || ""}-${day.slice(0, 2)}`;
+    }
+
+    // Validate 
+    const date = new Date(dateValue);
+    if (date && !isNaN(date)) {
+      setEditedTask({ ...editedTask, dueDate: dateValue });
+    } else {
+      setEditedTask({ ...editedTask, dueDate: "" });
+    }
+  };
+
   return (
     <div
       className={`border p-6 mb-4 rounded-lg shadow-md 
@@ -49,15 +73,13 @@ const TaskCard = ({ task, updateTask, deleteTask }) => {
           <input
             type="date"
             value={editedTask.dueDate}
-            onChange={(e) =>
-              setEditedTask({ ...editedTask, dueDate: e.target.value })
-            }
+            onChange={handleDateChange} 
             className="w-full p-2 mb-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-700 placeholder-gray-500"
             style={{
-              WebkitAppearance: "none", // Remove default styling in some browsers
-              MozAppearance: "none", // Remove default styling in Firefox
+              WebkitAppearance: "none", 
+              MozAppearance: "none", 
             }}
-         />
+          />
 
           <style jsx>{`
             input[type="date"]::-webkit-calendar-picker-indicator {
@@ -143,7 +165,7 @@ const TaskCard = ({ task, updateTask, deleteTask }) => {
                   ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                   : "bg-blue-500 text-white hover:bg-blue-600"
               }`}
-              disabled={task.completed} // Disable button if task is completed
+              disabled={task.completed} 
             >
               Edit
             </button>
