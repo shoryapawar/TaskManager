@@ -5,7 +5,7 @@ const TaskList = ({ tasks, updateTask, deleteTask, showFilters }) => {
   const [priorityFilter, setPriorityFilter] = useState("All");
   const [completionFilter, setCompletionFilter] = useState("All");
 
-  // Filter tasks by both priority and completion status
+  // Filter tasks
   const filteredTasks = tasks.filter((task) => {
     if (priorityFilter !== "All" && task.priority !== priorityFilter) {
       return false;
@@ -21,7 +21,6 @@ const TaskList = ({ tasks, updateTask, deleteTask, showFilters }) => {
 
   return (
     <div className="bg-primaryText mx-auto w-3/2 p-4 rounded-lg shadow-lg">
-      {/* Conditionally render filters if showFilters prop is true */}
       {showFilters && (
         <div className="mb-4 flex space-x-4">
           <div>
@@ -53,7 +52,6 @@ const TaskList = ({ tasks, updateTask, deleteTask, showFilters }) => {
         </div>
       )}
 
-      {/* Display filtered tasks */}
       <div>
         {filteredTasks.map((task) => (
           <TaskCard

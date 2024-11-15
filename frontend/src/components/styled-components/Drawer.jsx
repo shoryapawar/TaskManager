@@ -6,9 +6,7 @@ const Drawer = () => {
     <div className="drawer">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
-        {/* Page content here */}
         <label htmlFor="my-drawer" className="btn btn-ghost drawer-button p-2">
-          {/* Hamburger menu icon */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -32,18 +30,17 @@ const Drawer = () => {
           className="drawer-overlay"
         ></label>
         <ul className="menu bg-base-200 text-base-content h-full w-80 p-4 flex flex-col items-center justify-center space-y-4">
-          {/* Sidebar content here */}
           <li className="text-2xl font-semibold">
-            <Link to="/">Dashboard</Link>
+            <Link to="/">DASHBOARD</Link>
           </li>
           <li className="text-2xl font-semibold">
-            <Link to="/UpcomingTask">Upcoming Task</Link>
+            <Link to="/UpcomingTask">UPCOMING TASK</Link>
           </li>
           <li className="text-2xl font-semibold">
-            <Link to="/OverDueTask">Overdue Task</Link>
+            <Link to="/OverDueTask">OVERDUE TASK</Link>
           </li>
           <li className="text-2xl font-semibold">
-            <Link to="/CompletedTask">Completed Task</Link>
+            <Link to="/CompletedTask">COMPLETED TASK</Link>
           </li>
         </ul>
       </div>

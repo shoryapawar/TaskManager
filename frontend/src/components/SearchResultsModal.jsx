@@ -26,9 +26,7 @@ const SearchResultsModal = ({
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="bg-white p-6 rounded-lg shadow-lg w-1/2 max-h-96 overflow-y-auto relative z-10">
-        {/* Search and Filters Container */}
         <div className="flex items-center mb-4 space-x-4">
-          {/* Search Input on Left */}
           <input
             type="text"
             placeholder="Search tasks..."
@@ -36,14 +34,13 @@ const SearchResultsModal = ({
             className="bg-inputField text-primaryText p-2 rounded-md border focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-200 w-full"
           />
 
-          {/* Filters Container on Right */}
           <div className="flex space-x-4 items-center">
             <select
               value={priorityFilter}
               onChange={(e) => setPriorityFilter(e.target.value)}
-              className="p-2 border rounded"
+              className="p-2 border rounded w-32"
             >
-              <option value="">All Priorities</option>
+              <option value="">Priority</option>
               <option value="High">High</option>
               <option value="Medium">Medium</option>
               <option value="Low">Low</option>
@@ -52,13 +49,18 @@ const SearchResultsModal = ({
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="p-2 border rounded"
+              className="p-2 border rounded w-32"
             >
-              <option value="">All Statuses</option>
+              <option value="">Status</option>
               <option value="completed">Completed</option>
               <option value="pending">Pending</option>
             </select>
-            <button onClick={onClose} className="btn btn-circle">
+
+            {/* Cross Button */}
+            <button
+              onClick={onClose}
+              className="btn btn-circle bg-transparent border-0 focus:outline-none p-2 w-12 h-12 flex justify-center items-center ml-auto rounded-full"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -78,8 +80,6 @@ const SearchResultsModal = ({
         </div>
 
         <h2 className="text-lg font-semibold mb-4">Search Results</h2>
-
-        {/* Displaying Filtered Tasks */}
         {filteredTasks.length > 0 ? (
           <div className="space-y-4">
             {filteredTasks.map((task) => (
@@ -95,8 +95,6 @@ const SearchResultsModal = ({
           <p>No tasks found matching the search criteria.</p>
         )}
       </div>
-
-      {/* Modal Background Overlay */}
       <div
         className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-0"
         onClick={onClose}

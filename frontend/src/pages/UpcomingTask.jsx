@@ -10,7 +10,7 @@ const UpcomingTask = ({ tasks, addTask, updateTask, deleteTask }) => {
 
   return (
     <div className="mt-10">
-     <h1 className="text-white text-2xl font-semibold py-4">Upcoming Task</h1>
+     <h1 className="text-white text-2xl font-semibold py-4">UPCOMING TASK</h1>
       <div >
         <TaskList
          showFilters = "true"

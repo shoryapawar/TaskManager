@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import SideNav from "./components/SideNav";
 import { Route, Routes } from "react-router-dom";
@@ -13,7 +12,7 @@ function App() {
     return JSON.parse(localStorage.getItem("tasks")) || [];
   });
   const [searchQuery, setSearchQuery] = useState("");
-  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false); // New state to control modal visibility
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -56,8 +55,12 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen font-georgia bg-navbar flex flex-col items-center p-6">
-      <SideNav className="p-7 font-sourgummy" onSearch={handleSearch} openSearchModal={openSearchModal} /> {/* Pass handler */}
+    <div className="min-h-screen font-sourgummy bg-navbar flex flex-col items-center p-6">
+      <SideNav
+        className="p-7 font-sourgummy"
+        onSearch={handleSearch}
+        openSearchModal={openSearchModal}
+      />
       <div className="mt-4 w-full">
         <Routes>
           <Route
@@ -109,7 +112,7 @@ function App() {
       </div>
       {isSearchModalOpen && (
         <SearchResultsModal
-        onSearch={handleSearch}
+          onSearch={handleSearch}
           tasks={filteredTasks}
           onClose={closeSearchModal}
           updateTask={updateTask}

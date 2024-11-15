@@ -10,7 +10,7 @@ const OverDue = ({ tasks, addTask, updateTask, deleteTask }) => {
 
   return (
    <div className="mt-10">
-    <h1 className="text-white text-2xl font-semibold py-4">OverDue Task</h1>
+    <h1 className="text-white text-2xl font-semibold py-4">OVERDUE TASK</h1>
     <TaskList
      showFilters = "true"
       tasks={overdueTasks}

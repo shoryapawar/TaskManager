@@ -9,7 +9,7 @@ const SideNav = ({ onSearch, openSearchModal }) => {
       </div>
       <div className="navbar-center">
         <Link to="/" className="text-xl text-white font-semibold tracking-wide hover:text-gray-300">
-          📋Task Manager
+          📋TASK MANAGER
         </Link>
       </div>
       <div className="navbar-end flex items-center">
@@ -21,9 +21,9 @@ const SideNav = ({ onSearch, openSearchModal }) => {
         </button> */}
         <button
           onClick={openSearchModal} // Trigger search modal opening
-          className="ml-2 p-2 bg-background text-white rounded-full"
+          className="ml-2 p-2 bg-grayt text-lg text-white rounded-full"
         > 
-        <IoMdSearch />
+        <IoMdSearch className="text-2xl" />
         </button>
       </div>
     </div>

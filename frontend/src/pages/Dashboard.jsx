@@ -19,13 +19,12 @@ const Dashboard = ({ tasks, addTask, updateTask, deleteTask }) => {
   return (
     <div className="w-[100%] mx-auto p-4 bg-tertiaryButton rounded-lg mt-12">
       <TaskForm addTask={addTask} />
-      {/* Task Lists Layout */}
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="bg-white p-4 rounded-lg shadow-lg">
           <h2 className="text-xl font-semibold text-blue-600 text-center mb-4">
-             <Link to="/UpcomingTask">
-                  <a href="#"> Upcoming Tasks</a>
-              </Link>
+            <Link to="/UpcomingTask">
+              <a href="#"> UPCOMING TASKS</a>
+            </Link>
           </h2>
           <TaskList
             tasks={upcomingTasks.slice(0, 3)}
@@ -45,9 +44,9 @@ const Dashboard = ({ tasks, addTask, updateTask, deleteTask }) => {
         {/* Overdue Tasks */}
         <div className="bg-white p-4 rounded-lg shadow-lg">
           <h2 className="text-xl font-semibold text-red-600 text-center mb-4">
-          <Link to="/OverDueTask">
-                  <a href="#"> OverDue Tasks</a>
-              </Link>
+            <Link to="/OverDueTask">
+              <a href="#"> OVERDUE TASKS</a>
+            </Link>
           </h2>
           <TaskList
             tasks={overdueTasks.slice(0, 3)}
@@ -67,9 +66,9 @@ const Dashboard = ({ tasks, addTask, updateTask, deleteTask }) => {
         {/* Completed Tasks */}
         <div className="bg-white p-4 rounded-lg shadow-lg">
           <h2 className="text-xl font-semibold text-green-600 text-center mb-4">
-          <Link to="/CompletedTask">
-                  <a href="#"> Completed Tasks</a>
-              </Link>
+            <Link to="/CompletedTask">
+              <a href="#"> COMPLETED TASKS</a>
+            </Link>
           </h2>
           <TaskList
             tasks={completedTasks.slice(0, 3)}
